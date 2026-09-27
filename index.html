@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+*{box-sizing:border-box}
+body{margin:0;background:#171515;color:#f4ece5;font-family:Montserrat,sans-serif;min-height:100vh;overflow:hidden}
+.page{display:none;min-height:100vh;padding:30px 22px;align-items:center;justify-content:center;text-align:center;animation:fade .7s ease}
+.page.active{display:flex}
+.wrap{width:min(520px,100%);position:relative}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500;margin:0 0 14px}
+h1{font-size:52px;line-height:1}
+h2{font-size:40px}
+p{font-size:15px;line-height:1.8;color:#d7cbc3}
+.small{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#bda99d}
+button{border:1px solid #75645d;background:#292323;color:#f5ebe4;padding:14px 18px;border-radius:30px;margin:7px;cursor:pointer;font:400 13px Montserrat;transition:.25s}
+button:hover{background:#3a302d;transform:translateY(-2px)}
+.cake{font-size:95px;margin:18px 0 8px;filter:drop-shadow(0 10px 25px #000)}
+.candles{font-size:34px;letter-spacing:8px;cursor:pointer;margin-top:-42px;position:relative;z-index:2}
+.hint{font-size:12px;color:#a99b94;margin-top:16px}
+.card{background:#211d1d;border:1px solid #4c403b;border-radius:22px;padding:28px;box-shadow:0 20px 70px #0008}
+.heart{font-size:30px;opacity:.8;margin-bottom:10px}
+.final{font-size:18px;line-height:1.9}
+#confetti{position:fixed;inset:0;pointer-events:none}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+
+<section class="page active" id="p1">
+<div class="wrap">
+<div class="small">A little surprise for you</div>
+<h1>Happy Birthday,<br>My Love</h1>
+<div class="cake">🎂</div>
+<div class="candles" onclick="blow()">🕯️ 🕯️ 🕯️</div>
+<div class="hint">Tap the candles to blow them out ✨</div>
+</div>
+</section>
+
+<section class="page" id="p2">
+<div class="wrap card">
+<div class="heart">♡</div>
+<div class="small">For you, Hurayra</div>
+<h2>One little choice...</h2>
+<p>Before you go ahead, choose whatever your heart wants.</p>
+<button onclick="show('p3'); setText('choice','A message written just for you.')">💌 A message</button>
+<button onclick="show('p4'); setText('choice2','Because you are someone very special to me.')">🫶 Why you're special</button>
+<button onclick="show('p5'); setText('choice3','And now… one last little surprise.')">🎁 One surprise</button>
+</div>
+</section>
+
+<section class="page" id="p3">
+<div class="wrap card">
+<div class="heart">♡</div><div class="small">A message for you</div>
+<h2 id="choice">A message written just for you.</h2>
+<p>On your birthday, I just want you to know how grateful I am to have you in my life. You make ordinary moments feel special, and somehow, just having you around makes everything a little softer.</p>
+<button onclick="show('p6')">Continue ♡</button>
+</div>
+</section>
+
+<section class="page" id="p4">
+<div class="wrap card">
+<div class="heart">♡</div><div class="small">Why you're special</div>
+<h2 id="choice2">Because you are someone very special to me.</h2>
+<p>It's not only the big things. It's your little ways, your presence, your smile, your words, and all those tiny moments that stay in my heart longer than you know.</p>
+<button onclick="show('p6')">Continue ♡</button>
+</div>
+</section>
+
+<section class="page" id="p5">
+<div class="wrap card">
+<div class="heart">✦</div><div class="small">A little surprise</div>
+<h2 id="choice3">And now… one last little surprise.</h2>
+<p>Some people come into your life and quietly become your favourite part of it. For me, that person is you.</p>
+<button onclick="show('p6')">Open the final surprise ✨</button>
+</div>
+</section>
+
+<section class="page" id="p6">
+<div class="wrap">
+<div class="small">Just one more thing</div>
+<h1>Happy Birthday,<br>My Love ❤️</h1>
+<p class="final">May this year bring you peace, happiness, beautiful moments and everything your heart quietly wishes for.</p>
+<p class="final">And no matter how many birthdays come and go, I hope I get to celebrate many more of them with you.</p>
+<p style="color:#bda99d;margin-top:25px">With all my love ♡</p>
+</div>
+</section>
+
+<script>
+function show(id){
+ document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+function setText(id,t){document.getElementById(id).textContent=t}
+function blow(){
+ document.querySelector('.candles').textContent='✨  ✨  ✨';
+ document.querySelector('.hint').textContent='Wish made. Now open your surprise… ♡';
+ setTimeout(()=>show('p2'),900);
+}
+</script>
+</body>
+</html>
